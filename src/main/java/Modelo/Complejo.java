@@ -52,19 +52,33 @@ public class Complejo {
 		return r;
 	}
 	
-	public static void main(String[] args) {
-		/*
-		Complejo a = new Complejo(1, 2);
-		Complejo b = new Complejo(3, 4);
-		
-		Complejo c = a.add(b);
-		
-		System.out.println(c);
-		
-		a.setReal(10);
-		
-		System.out.println(c);		
-		*/
+	public static Complejo sumarComplejos(Complejo a, Complejo b) {
+		double numReal = a.getReal() + b.getReal();
+		double numI = a.getImaginario() + b.getImaginario();
+		Complejo resultado = new Complejo(numReal, numI);
+		return resultado;
 	}
+	
+	public static Complejo restarComplejos(Complejo a, Complejo b) {
+		double numReal = a.getReal() - b.getReal();
+		double numI = a.getImaginario() - b.getImaginario();
+		Complejo resultado = new Complejo(numReal, numI);
+		return resultado;
+	}
+	
+	public static Complejo multiplicarComplejos(Complejo a, Complejo b) {
+		double numReal = (a.getReal()*b.getReal()) - (a.getImaginario()*b.getImaginario());
+		double numI = (a.getReal()*b.getImaginario()) + (a.getImaginario()*b.getReal());
+		Complejo resultado = new Complejo(numReal, numI);
+		return resultado;
+	}
+	
+	public static Complejo dividirComplejos(Complejo a, Complejo b) {
+		double numReal = (a.getReal()*b.getReal()) + (a.getImaginario()*b.getImaginario()) / Math.pow(b.getReal(), 2) + Math.pow(b.getImaginario(), 2);
+		double numI = (a.getImaginario()*b.getReal()) - (b.getImaginario()*a.getReal()) / Math.pow(b.getReal(), 2) + Math.pow(b.getImaginario(), 2);
+		Complejo resultado = new Complejo(numReal, numI); 
+		return resultado;
+	}
+	
 
 }
